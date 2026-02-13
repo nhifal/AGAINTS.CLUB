@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - AGAINTS.CLUB</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f1a;
+            color: #e2e8f0;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        .invoice-container {
+            background: linear-gradient(135deg, #121222 0%, #1a1a2e 100%);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 70px;
+            border-radius: 20px;
+            box-shadow: 0 30px 70px rgba(0, 255, 255, 0.08),
+                        inset 0 0 40px rgba(0, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .invoice-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 255, 255, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            background: linear-gradient(90deg, #00f0ff, #00b7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .invoice-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #00f0ff;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .info-block h3 {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .info-block p {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+
+        th {
+            background: rgba(0, 240, 255, 0.08);
+            color: #00f0ff;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+        }
+
+        td {
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background: rgba(0, 240, 255, 0.04);
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total-section {
+            text-align: right;
+            margin: 60px 0 50px;
+        }
+
+        .total-label {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+
+        .grand-total {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #00f0ff;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            background: rgba(0, 240, 255, 0.08);
+            padding: 25px 40px;
+            border-radius: 16px;
+            display: inline-block;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .payment-info {
+            padding: 35px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .payment-info h3 {
+            color: #00f0ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .print-btn {
+            text-align: center;
+        }
+
+        button {
+            padding: 16px 50px;
+            background: linear-gradient(90deg, #00b7ff, #00f0ff);
+            color: #0f0f1a;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .invoice-container { padding: 40px 30px; }
+            .info-grid { grid-template-columns: 1fr; gap: 40px; }
+            .grand-total { font-size: 36px; padding: 20px 30px; }
+            .logo { font-size: 38px; }
+        }
+
+        @media print {
+            body { background: #000; padding: 0; }
+            .invoice-container {
+                box-shadow: none;
+                background: #000;
+                border: none;
+                padding: 40px;
+            }
+            button, .print-btn { display: none !important; }
+            .grand-total { text-shadow: none; background: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+
+    <div class="header">
+        <div class="logo">AGAINTS.CLUB</div>
+        <div class="invoice-title">INVOICE</div>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-block">
+            <h3>Invoice No</h3>
+            <p>INV-042/III/2026</p>
+            
+            <h3>Tanggal</h3>
+            <p>13 Februari 2026</p>
+            
+            <h3>Jatuh Tempo</h3>
+            <p>27 Februari 2026</p>
+        </div>
+
+        <div class="info-block">
+            <h3>Dari</h3>
+            <p><strong>NIFAL</strong><br>
+               Web & Creative Developer</p>
+
+            <h3>Kepada</h3>
+            <p><strong>AGAINTS.CLUB</strong><br>
+               [Email / Kontak jika ada]</p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Deskripsi</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Harga</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Konsep & Struktur Website Premium</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 400.000</td>
+                <td class="text-right">Rp 400.000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Desain UI/UX Futuristik & Responsive</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 500.000</td>
+                <td class="text-right">Rp 500.000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Development Website (maks. 7 halaman)</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 450.000</td>
+                <td class="text-right">Rp 450.000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Integrasi Form, WhatsApp, Discord & Animation</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 250.000</td>
+                <td class="text-right">Rp 250.000</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>SEO On-Page + Optimasi Performa Tinggi</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 200.000</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Setup Hosting Cloud + Domain .club (1 Tahun)</td>
+                <td class="text-right">1</td>
+                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 200.000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="total-section">
+        <div class="total-label">TOTAL PEMBAYARAN</div>
+        <div class="grand-total">Rp 2.000.000</div>
+    </div>
+
+    <div class="payment-info">
+        <h3>Detail Pembayaran</h3>
+        <p><strong>Bank:</strong> BCA</p>
+        <p><strong>No. Rekening:</strong> _____________</p>
+        <p><strong>Atas Nama:</strong> NIFAL</p>
+        <p style="margin-top: 20px; color: #94a3b8;">Transfer sebelum jatuh tempo. Kirim bukti transfer via WhatsApp/Discord untuk konfirmasi cepat.</p>
+    </div>
+
+    <div class="print-btn">
+        <button onclick="window.print()">PRINT / SAVE AS PDF</button>
+    </div>
+
+</div>
+
+</body>
+</html>
