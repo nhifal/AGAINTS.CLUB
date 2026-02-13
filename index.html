@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice - AGAINTS.CLUB</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -15,35 +15,21 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #0f0f1a;
-            color: #e2e8f0;
-            padding: 30px 15px;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fc;
+            color: #1f2937;
+            padding: 40px 20px;
+            line-height: 1.6;
         }
 
         .invoice-container {
-            background: linear-gradient(135deg, #121222 0%, #1a1a2e 100%);
+            background: #ffffff;
             max-width: 1000px;
             margin: 0 auto;
             padding: 60px 70px;
-            border-radius: 20px;
-            box-shadow: 0 30px 70px rgba(0, 255, 255, 0.08),
-                        inset 0 0 40px rgba(0, 255, 255, 0.03);
-            border: 1px solid rgba(0, 255, 255, 0.12);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .invoice-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(0, 255, 255, 0.06) 0%, transparent 60%);
-            pointer-events: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
         }
 
         .header {
@@ -51,47 +37,42 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 60px;
-            position: relative;
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 48px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
             font-weight: 700;
-            letter-spacing: 8px;
-            background: linear-gradient(90deg, #00f0ff, #00b7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            letter-spacing: 4px;
+            color: #111827;
         }
 
         .invoice-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            color: #00f0ff;
-            letter-spacing: 3px;
-            text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+            color: #3b82f6;
+            letter-spacing: 1px;
         }
 
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             margin-bottom: 60px;
         }
 
         .info-block h3 {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 10px;
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .info-block p {
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         table {
@@ -101,25 +82,21 @@
         }
 
         th {
-            background: rgba(0, 240, 255, 0.08);
-            color: #00f0ff;
-            padding: 18px 15px;
+            background: #f3f4f6;
+            color: #374151;
+            padding: 16px 18px;
             text-align: left;
             font-weight: 600;
+            font-size: 14px;
             text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         td {
-            padding: 20px 15px;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+            padding: 20px 18px;
+            border-bottom: 1px solid #f3f4f6;
             vertical-align: middle;
-        }
-
-        tr:hover {
-            background: rgba(0, 240, 255, 0.04);
         }
 
         .text-right {
@@ -128,40 +105,40 @@
 
         .total-section {
             text-align: right;
-            margin: 60px 0 50px;
+            margin: 50px 0 60px;
         }
 
         .total-label {
-            font-size: 18px;
-            color: #94a3b8;
-            margin-bottom: 12px;
+            font-size: 17px;
+            color: #6b7280;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .grand-total {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
-            color: #00f0ff;
-            text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
-            background: rgba(0, 240, 255, 0.08);
-            padding: 25px 40px;
-            border-radius: 16px;
+            color: #111827;
+            padding: 20px 35px;
+            background: #eff6ff;
+            border-radius: 12px;
             display: inline-block;
-            border: 1px solid rgba(0, 240, 255, 0.2);
+            border: 1px solid #bfdbfe;
         }
 
         .payment-info {
             padding: 35px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            border: 1px solid rgba(0, 255, 255, 0.1);
+            background: #f9fafb;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
             margin-bottom: 60px;
         }
 
         .payment-info h3 {
-            color: #00f0ff;
-            margin-bottom: 20px;
+            color: #1f2937;
+            margin-bottom: 18px;
             font-size: 18px;
+            font-weight: 600;
         }
 
         .print-btn {
@@ -169,42 +146,40 @@
         }
 
         button {
-            padding: 16px 50px;
-            background: linear-gradient(90deg, #00b7ff, #00f0ff);
-            color: #0f0f1a;
+            padding: 14px 45px;
+            background: #3b82f6;
+            color: white;
             border: none;
             border-radius: 50px;
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.25);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
         }
 
         button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
         }
 
         @media (max-width: 768px) {
             .invoice-container { padding: 40px 30px; }
             .info-grid { grid-template-columns: 1fr; gap: 40px; }
-            .grand-total { font-size: 36px; padding: 20px 30px; }
-            .logo { font-size: 38px; }
+            .grand-total { font-size: 32px; padding: 18px 28px; }
+            .logo { font-size: 34px; }
         }
 
         @media print {
-            body { background: #000; padding: 0; }
+            body { background: white; padding: 0; }
             .invoice-container {
                 box-shadow: none;
-                background: #000;
                 border: none;
                 padding: 40px;
+                max-width: 100%;
             }
             button, .print-btn { display: none !important; }
-            .grand-total { text-shadow: none; background: transparent; }
         }
     </style>
 </head>
@@ -219,24 +194,21 @@
 
     <div class="info-grid">
         <div class="info-block">
-            <h3>Invoice No</h3>
-            <p>INV-042/III/2026</p>
+            <h3>Nomor Invoice</h3>
+            <p>INV-002/XX/2025</p>
             
             <h3>Tanggal</h3>
-            <p>13 Februari 2026</p>
-            
-            <h3>Jatuh Tempo</h3>
-            <p>27 Februari 2026</p>
+            <p>24 Desember 2025</p>
         </div>
 
         <div class="info-block">
             <h3>Dari</h3>
             <p><strong>NIFAL</strong><br>
-               Web & Creative Developer</p>
+               Web Developer & Consultant</p>
 
             <h3>Kepada</h3>
             <p><strong>AGAINTS.CLUB</strong><br>
-               [Email / Kontak jika ada]</p>
+               [Kontak / Alamat jika diperlukan]</p>
         </div>
     </div>
 
@@ -255,43 +227,43 @@
                 <td>1</td>
                 <td>Konsep & Struktur Website Premium</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 400.000</td>
-                <td class="text-right">Rp 400.000</td>
+                <td class="text-right">Rp 350.000</td>
+                <td class="text-right">Rp 350.000</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Desain UI/UX Futuristik & Responsive</td>
+                <td>Desain UI/UX Modern & Responsive</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 500.000</td>
-                <td class="text-right">Rp 500.000</td>
+                <td class="text-right">Rp 450.000</td>
+                <td class="text-right">Rp 450.000</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Development Website (maks. 7 halaman)</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 450.000</td>
-                <td class="text-right">Rp 450.000</td>
+                <td class="text-right">Rp 400.000</td>
+                <td class="text-right">Rp 400.000</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>Integrasi Form, WhatsApp, Discord & Animation</td>
+                <td>Integrasi Form, WhatsApp, Discord & Micro-Animations</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 250.000</td>
-                <td class="text-right">Rp 250.000</td>
+                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 200.000</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>SEO On-Page + Optimasi Performa Tinggi</td>
+                <td>SEO On-Page & Optimasi Kecepatan Tinggi</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 200.000</td>
-                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 150.000</td>
+                <td class="text-right">Rp 150.000</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>Setup Hosting Cloud + Domain .club (1 Tahun)</td>
+                <td>Setup Hosting Premium + Domain .club (1 Tahun)</td>
                 <td class="text-right">1</td>
-                <td class="text-right">Rp 200.000</td>
-                <td class="text-right">Rp 200.000</td>
+                <td class="text-right">Rp 1.200.000</td>
+                <td class="text-right">Rp 1.200.000</td>
             </tr>
         </tbody>
     </table>
@@ -302,15 +274,14 @@
     </div>
 
     <div class="payment-info">
-        <h3>Detail Pembayaran</h3>
+        <h3>Informasi Pembayaran</h3>
         <p><strong>Bank:</strong> BCA</p>
-        <p><strong>No. Rekening:</strong> _____________</p>
+        <p><strong>No. Rekening:</strong> 3650217127</p>
         <p><strong>Atas Nama:</strong> NIFAL</p>
-        <p style="margin-top: 20px; color: #94a3b8;">Transfer sebelum jatuh tempo. Kirim bukti transfer via WhatsApp/Discord untuk konfirmasi cepat.</p>
     </div>
 
     <div class="print-btn">
-        <button onclick="window.print()">PRINT / SAVE AS PDF</button>
+        <button onclick="window.print()">Print / Simpan sebagai PDF</button>
     </div>
 
 </div>
